@@ -1,14 +1,26 @@
-version: 0.0
-os: linux
-files:
- - source: /
-   destination: /home/ec2-user/Skycast
-hooks:
- AfterInstall:
- - location: scripts/after_install.sh
-   timeout: 300
-   runas: root
- ApplicationStart:
- - location: scripts/application_start.sh
-   timeout: 300
-   runas: root
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18  # Change version as needed
+    commands:
+      - echo "Installing dependencies..."
+      - npm install
+
+  build:
+    commands:
+      - echo "Running build..."
+      - npm run build
+
+  post_build:
+    commands:
+      - echo "Running security audit..."
+      - npm audit --json > npm-audit-report.json
+      - echo "Running performance test..."
+      - artillery run performance/performance-test.yml --output performance/report.json
+
+artifacts:
+  files:
+    - '**/*'
+  name: Build-Artifact-${CODEBUILD_BUILD_ID}
