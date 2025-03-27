@@ -1,34 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: url('images/background.jpg') no-repeat center center/cover;
+    background-size: cover; /* Ensures the image covers the entire page */
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Makes the background stay fixed while scrolling */
+    height: 100vh; /* Ensures the body takes up the full height of the viewport */
+}
+
+.title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #00feba;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.card {
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #87CEEB, #4682B4);
+    color: #fff;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
+
+.search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.search button {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.search button img {
+    width: 16px;
+}
+
+.weather-icon {
+    width: 170px;
+    margin-top: 30px;
+}
+
+.weather h1 {
+    font-size: 80px;
+    font-weight: 500;
+}
+
+.weather h2 {
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0 20px;
+    margin-top: 50px;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.humidity, .wind {
+    font-size: 28px;
+    margin-top: -6px;
+}
+
+.weather {
+    display: none;
+}
+
+.error {
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+
 /* Forecast Section */
 .forecast {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allow wrapping if needed on smaller screens */
     margin-top: 30px;
     padding: 20px 0;
-    gap: 10px; /* Add spacing between forecast days */
 }
 
 .forecast-day {
     text-align: center;
     background-color: #4682B4;
     border-radius: 10px;
-    padding: 15px;
-    width: 18%; /* Adjust width to fit 5 items in one row */
-    min-width: 80px; /* Ensure it doesn't get too small */
+    padding: 20px;
+    width: 45%;
+
+    margin: 0 10px; /* Add some spacing between the two boxes */
 }
 
 .forecast-day h3 {
-    font-size: 16px; /* Slightly smaller to fit more items */
+    font-size: 20px;
     font-weight: 600;
     color: #fff;
 }
 
 .forecast-day img {
-    width: 40px; /* Smaller icon size for better fit */
-    margin: 8px 0;
+    width: 60px;
+    margin: 10px 0;
 }
 
 .forecast-day p {
     color: #fff;
-    font-size: 14px; /* Slightly smaller font size */
+    font-size: 18px;
+}
+
+.error {
+    text-align: center;
+    font-size: 14px;
+    color: #ff4d4d;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.footer-text {
+    color: #333;
+    font-weight: bold;
+}
+
+.forecast {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+
+.forecast-day {
+    text-align: center;
+    background-color: #4682B4;
+    border-radius: 10px;
+    padding: 20px;
+    width: 45%; /* Ensure the two forecast days are side by side */
+    margin: 0 10px; /* Add some spacing between the two boxes */
+}
+
+.forecast-day h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.forecast-day img {
+    width: 60px;
+    margin: 10px 0;
+}
+
+.forecast-day p {
+    color: #fff;
+    font-size: 18px;
 }
