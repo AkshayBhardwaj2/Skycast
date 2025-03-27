@@ -12,14 +12,23 @@ async function checkWeather(city) {
     document.querySelector(".forecast").style.display = "none";
     document.querySelector(".error").style.display = "none";
 
-    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    // Trim and format the city name
+    const formattedCity = city.trim();
+    console.log(`Fetching weather for: ${formattedCity}`);
 
-    if (response.status == 404) {
+    const response = await fetch(apiUrl + formattedCity + `&appid=${apiKey}`);
+    console.log(`API Response Status: ${response.status}`);
+
+    if (response.status === 404) {
+        document.querySelector(".error").style.display = "block";
+        document.querySelector(".weather").style.display = "none";
+    } else if (!response.ok) {
+        console.error(`API Error: ${response.statusText}`);
         document.querySelector(".error").style.display = "block";
         document.querySelector(".weather").style.display = "none";
     } else {
         var data = await response.json();
-        console.log(data);
+        console.log("API Response Data:", data);
 
         // Current weather data
         const currentWeather = data.list[0];
@@ -69,11 +78,9 @@ function displayForecast(forecastDays) {
     `).join('');
 }
 
-// Load default city on page load
-document.addEventListener("DOMContentLoaded", () => {
-    checkWeather("Kuala Lumpur");
-});
-
 searchBtn.addEventListener("click", () => {
-    checkWeather(searchBox.value);
+    const city = searchBox.value;
+    if (city) {
+        checkWeather(city);
+    }
 });
