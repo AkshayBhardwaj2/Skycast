@@ -1,15 +1,16 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
 body {
     background: url('images/background.jpg') no-repeat center center/cover;
-    background-size: cover; /* Ensures the image covers the entire page */
-    background-position: center; /* Centers the image */
-    background-attachment: fixed; /* Makes the background stay fixed while scrolling */
-    height: 100vh; /* Ensures the body takes up the full height of the viewport */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
 }
 
 .title {
@@ -46,8 +47,8 @@ body {
 }
 
 .search input {
-    border: 0;
-    outline: 0;
+    border: none;
+    outline: none;
     background: #ebfffc;
     color: #555;
     padding: 10px 25px;
@@ -59,8 +60,8 @@ body {
 }
 
 .search button {
-    border: 0;
-    outline: 0;
+    border: none;
+    outline: none;
     background: #ebfffc;
     border-radius: 50%;
     width: 60px;
@@ -92,7 +93,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 0 20px;
+    padding: 0 20px;
     margin-top: 50px;
 }
 
@@ -117,9 +118,9 @@ body {
 }
 
 .error {
-    text-align: left;
-    margin-left: 10px;
+    text-align: center;
     font-size: 14px;
+    color: #ff4d4d;
     margin-top: 10px;
     display: none;
 }
@@ -127,23 +128,24 @@ body {
 /* Forecast Section */
 .forecast {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px;
     margin-top: 30px;
-    padding: 20px 0;
 }
 
 .forecast-day {
+    flex: 0 0 auto;
+    width: 120px;
     text-align: center;
     background-color: #4682B4;
     border-radius: 10px;
-    padding: 20px;
-    width: 45%;
-
-    margin: 0 10px; /* Add some spacing between the two boxes */
+    padding: 15px;
 }
 
 .forecast-day h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     color: #fff;
 }
@@ -155,14 +157,7 @@ body {
 
 .forecast-day p {
     color: #fff;
-    font-size: 18px;
-}
-
-.error {
-    text-align: center;
-    font-size: 14px;
-    color: #ff4d4d;
-    margin-top: 10px;
+    font-size: 16px;
 }
 
 footer {
@@ -176,34 +171,16 @@ footer {
     font-weight: bold;
 }
 
-.forecast {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-    padding: 20px 0;
+h1 {
+    font-size: 32px;  /* Adjust size if needed */
+    font-weight: bold; /* Makes it bold */
+    color: black; /* Changes text color to black */
 }
 
-.forecast-day {
+.title {
     text-align: center;
-    background-color: #4682B4;
-    border-radius: 10px;
-    padding: 20px;
-    width: 45%; /* Ensure the two forecast days are side by side */
-    margin: 0 10px; /* Add some spacing between the two boxes */
-}
-
-.forecast-day h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #fff;
-}
-
-.forecast-day img {
-    width: 60px;
-    margin: 10px 0;
-}
-
-.forecast-day p {
-    color: #fff;
-    font-size: 18px;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: black; /* Change to black */
 }
