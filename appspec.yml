@@ -3,22 +3,25 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18  # Change version as needed
+      nodejs: 18
     commands:
       - echo "Installing dependencies..."
       - npm install
 
   build:
     commands:
-      - echo "Running build..."
+      - echo "Building the application..."
       - npm run build
 
   post_build:
     commands:
+      - echo "Running unit tests..."
+      - npm test
       - echo "Running security audit..."
       - npm audit --json > npm-audit-report.json
       - echo "Running performance test..."
       - artillery run performance/performance-test.yml --output performance/report.json
+      - echo "Build and Tests Completed"
 
 artifacts:
   files:
