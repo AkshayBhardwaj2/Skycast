@@ -10,7 +10,7 @@ npm cache clean --force >> /home/ec2-user/Skycast/deploy.log
 
 # Run npm install
 echo 'npm install' >> /home/ec2-user/Skycast/deploy.log
-npm install >> /home/ec2-user/Skycast/deploy.log
+#npm install >> /home/ec2-user/Skycast/deploy.log
 
 # Fix permissions
 echo 'Fixing permissions for node_modules' >> /home/ec2-user/Skycast/deploy.log
