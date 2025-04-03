@@ -1,14 +1,25 @@
 version: 0.0
 os: linux
 files:
- - source: /
-   destination: /home/ec2-user/Skycast
+  - source: /
+    destination: /home/ec2-user/Skycast
 hooks:
- AfterInstall:
- - location: scripts/after_install.sh
-   timeout: 300
-   runas: root
- ApplicationStart:
- - location: scripts/application_start.sh
-   timeout: 300
-   runas: root
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: root
+      # Log the output to CloudWatch Logs
+      logging:
+        logGroupName: /aws/codepipeline/skycast-log-group
+        logStreamName: afterInstall-stream
+        level: INFO
+
+  ApplicationStart:
+    - location: scripts/application_start.sh
+      timeout: 300
+      runas: root
+      # Log the output to CloudWatch Logs
+      logging:
+        logGroupName: /aws/codepipeline/skycast-log-group
+        logStreamName: applicationStart-stream
+        level: INFO
